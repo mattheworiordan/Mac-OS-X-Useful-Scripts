@@ -1,0 +1,30 @@
+= Mac OS X Useful Scripts
+
+== Overview
+
+Whilst using Mac OS X primarily through the terminal, I have written scripts to help save time and improve the experience within Terminal.  This is my collection of scripts which I will hopefully continue to update and expand upon.
+
+== spotfind
+
+Because the default find command on Mac OS X is painfully slow, and mdfind is a little cryptic and is missing some simple paramters, I wrote this script to simplify the process of rapidly finding files, folders or text within files.
+
+=== Installation 
+
+Download spotfind
+Ensure the file exists in a folder within your default environment PATH or simply copy it to /usr/local/bin.
+Ensure the file has execute permissions set (use chmod 755).
+
+=== Usage
+
+Simply run spotlight with no parameters for details on usage.
+
+== Meta
+
+Written by Matthew O'Riordan, http://mattheworiordan.com
+Feedback is welcome, please branch or comment as you wish.
+
+http://github.com/mattheworiordan/Mac-OS-X-Useful-Scripts
+http://mattheworiordan.com
+
+Released under the MIT License: http://www.opensource.org/licenses/mit-license.php
+
