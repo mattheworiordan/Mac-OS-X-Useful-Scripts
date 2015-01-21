@@ -5,11 +5,11 @@
 ######
 
 param1=$1
-if [ -z $1 ]; then 
+if [ -z "$1" ]; then 
 	param1="?"
 fi
 
-if [ $param1 = "?" ] || [ $param1 = "--help" ] || [ $param1 = "-h" ]; then
+if [ "$param1" = "?" ] || [ "$param1" = "--help" ] || [ "$param1" = "-h" ]; then
 	echo "usage: spotfind [-fpc] [restrict_search_to_folder] file_wildcards
 	Default usage searches for a file with the name containing the first parameter
 	
@@ -38,8 +38,8 @@ if [ $param1 = "?" ] || [ $param1 = "--help" ] || [ $param1 = "-h" ]; then
 	   a result, where as Terminal would.
 "
 else
-	if [ $1 = "-c" ] || [ $1 = "--configure" ]; then
-		if [ -z $2 ]; then
+	if [ "$1" = "-c" ] || [ "$1" = "--configure" ]; then
+		if [ -z "$2" ]; then
 			echo "Adding /Library folder to the Spotlight search indexes, please wait..."
 			mdimport /Library
 			echo "Adding /usr folder to the Spotlight search indexes, please wait..."
@@ -53,15 +53,15 @@ else
 		
 		If you would like to expand the types of files that Spotlight indexes (such as text within source code files), then go to http://www.macosxtips.co.uk/index_files/terminal-commands-for-improving-spotlight.html and follow the instructions under 'Make Spotlight index source code'
 		If you need to rebuild the indexes, execute the command: sudo mdutil -E /"
-	elif [ $1 = "-f" ] || [ $1 = "--folder" ]; then
+	elif [ "$1" = "-f" ] || [ "$1" = "--folder" ]; then
 		mdfind "kMDItemKind == 'Folder' && kMDItemDisplayName == '$2'c"
-	elif [ $1 = "-p" ] || [ $1 = "--phrase" ]; then
+	elif [ "$1" = "-p" ] || [ "$1" = "--phrase" ]; then
 		if [ -z $3 ]; then
-			mdfind $2 
+			mdfind "$2" 
 		else
-			mdfind -onlyin $2 $3
+			mdfind -onlyin "$2" "$3"
 		fi
-	elif [ -z $2 ]; then
+	elif [ -z "$2" ]; then
 		mdfind "kMDItemDisplayName == '$1'c"
 	else
 		mdfind -onlyin $1 "kMDItemDisplayName == '$2'c"
