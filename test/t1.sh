@@ -3,11 +3,13 @@
 export PATH=.:"$PATH"
 
 result=false
-if stdout=$(../spotfind.sh "thing" 2>&1)
+if stdout="$(../spotfind.sh "thing" 2>&1)"
 then
 	if [[ "$stdout" == "RAN_MDFIND kMDItemDisplayName == 'thing'c" ]]
 	then
 		result=true
+	else
+		echo "$stdout"
 	fi
 fi
 
@@ -20,5 +22,3 @@ fi
 
 # return the test status as exit status
 $result
-
-

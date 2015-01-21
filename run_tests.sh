@@ -5,7 +5,7 @@ all_passed=true
 for test in t*.sh
 do
 	echo ==================== Run Test $test
-	./$test || all_passed=false
+	./"$test" || all_passed=false
 done
 echo ==================== 
 echo Result:

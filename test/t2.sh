@@ -3,12 +3,13 @@
 export PATH=.:"$PATH"
 
 result=false
-if stdout=$(../spotfind.sh "thing with space" 2>&1 )
+if stdout="$(../spotfind.sh "thing with space" 2>&1 )"
 then
-    echo "$stdout"
-	if [[ "$stdout" == "RAN_MDFIND kMDItemDisplayName == 'thing with space'c" ]]
+    if [[ "$stdout" == "RAN_MDFIND kMDItemDisplayName == 'thing with space'c" ]]
 	then
 		result=true
+	else
+		echo "$stdout"
 	fi
 fi
 
@@ -21,5 +22,3 @@ fi
 
 # return the test status as exit status
 $result
-
-
